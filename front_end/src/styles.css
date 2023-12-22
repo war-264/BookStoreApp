@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+/*  */
+@import "~font-awesome/css/font-awesome.min.css";
+
+/* body { margin: 0; font-family: 'Times New Roman', Times, serif, "Helvetica Neue", sans-serif; } */
+
+.mat-error {
+    background-color: rgb(65, 252, 134);
+    color: white;
+    width: 40%;
+}
+.mat-error button {
+    
+    color: rgb(237, 43, 43);
+    border: 1px solid;
+}

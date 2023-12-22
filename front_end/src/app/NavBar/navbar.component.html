@@ -1,0 +1,35 @@
+
+
+
+<div [ngSwitch]="type" class="container-fluid">
+    <div  *ngSwitchCase="'admin'" style="background-color:black;" class="alert  text-white text-center text-break"><h2 ><a style="color: white;"  routerLink="/home" >BookStore</a> <i  class="fa fa-stack-overflow"></i></h2>
+        <p [hidden]="!login">
+
+            <a routerLink="/booklist">Book List <i style="font-size: 22px; color:violet ;" class="fa fa-book mx-2 "></i></a>
+            <span class="mx-2">|</span>
+            <a routerLink="/Book/add">Add Book <i style="font-size: 22px; color:violet ;" class="fa fa-book mx-2 "></i></a>
+            <button (click)="LogoutClick()" style="float:right;" class="btn btn-danger   ">Logout</button>
+        </p>
+        <p [hidden]="login">
+
+        </p>
+
+
+    </div>
+    <div *ngSwitchCase="'user'" style="background-color:black;" class="alert  text-white text-center text-break"><h2><a style="color: white;"  routerLink="/home" >BookStore</a> <i  class="fa fa-stack-overflow"></i></h2>
+        <p [hidden]="!login">
+
+            <a routerLink="/booklist">Book List <i style="font-size: 22px; color:violet ;" class="fa fa-book mx-2 "></i></a>
+
+
+            <button (click)="LogoutClick()" style="float:right;" class="btn btn-danger  ">Logout</button>
+
+        </p>
+        <p [hidden]="login">
+
+
+        </p>
+
+    </div>
+
+    </div>

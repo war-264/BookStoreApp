@@ -1,0 +1,73 @@
+<div class="col-md-12 text-center">
+  <button
+    [hidden]="hideLoginButton"
+    (click)="onClick()"
+    class="col-md-3 my-2 text-center alert alert-primary btn"
+  >
+    Login
+  </button>
+  <hr />
+</div>
+<div
+  [hidden]="loginForm"
+  style="border: 1px solid;min-width: 30%;  max-width:5cm; height: auto; border-radius: 6px"
+  class="container   mt-4"
+>
+
+
+  <form  class="form " ngNativeValidate (ngSubmit)="login()">
+    <div class="input-icons ">
+     
+      
+        <i class="fa fa-user icon">
+        </i>
+      <input
+        name="userName"
+        #userTest="ngModel"
+        required
+        pattern="[A-Za-z]{1,}[0-9]{0,}"
+        minlength="6"
+        maxlength="8"
+        [(ngModel)]="user.userName"
+        type="text"
+        placeholder="user name "
+        class="input-field    mt-3"
+      />
+    </div>
+    <ul class="alert-error" *ngIf="userTest.touched && userTest.errors">
+      <div class="popup" style="color: rgb(253, 127, 43)" *ngIf="userTest.invalid">
+        should have min 6 and max 8 letters and no special character is allowed
+      </div>
+    </ul>
+
+    <div class="input-icons">
+        <i class="fa fa-key icon">
+        </i>
+      <input
+        name="password"
+        #passwordTest="ngModel"
+        required
+        [(ngModel)]="user.password"
+        minlength="8"
+        maxlength="10"
+        pattern="^(?=.{8,})(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$"
+        type="text"
+        placeholder="password"
+        class="input-field  mt-3"
+      />
+    </div>
+    <ul class="alert-error" *ngIf="passwordTest.touched && passwordTest.errors">
+      <li style="color: rgb(253, 127, 43)" *ngIf="passwordTest.invalid">
+        Must contain at least one number and one uppercase and lowercase letter
+        and one special character and at least 8 or more characters
+      </li>
+    </ul>
+
+   
+    <button id="login" type="submit" class="btn btn-outline-success  mt-4">Login</button>
+      
+    
+  </form>
+ 
+  <a routerLink="/user/add" class="nav-link text-center mx-3">Sign up</a>
+</div>

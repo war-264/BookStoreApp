@@ -1,0 +1,105 @@
+<div ngClass="card">
+  <div class="card-header">
+    <h2 class="card-title alert-success text-center">
+      {{ title | uppercase }}
+    </h2>
+  </div>
+  <div class="card-body">
+    <!-- filter panel -->
+    <div class="row">
+      <div class="col-md-1">Find By:</div>
+      <div class="col-1 mx-2">
+        <select [(ngModel)]="filtertype">
+          <option value="bookName">Book Name</option>
+          <option value="price">Price</option>
+          <option value="authorName">Author</option>
+        </select>
+      </div>
+      <div [hidden]="filtertype != 'price'" style="right: 4px" class="col-md-1">
+        <select [(ngModel)]="pricefilter">
+          <option value="=" default>=</option>
+          <option value=">">></option>
+          <option value="<"><< /option></option>
+        </select>
+      </div>
+      <div class="col-md-1">
+        <input style="height: 25px" type="text" [(ngModel)]="filter" />
+      </div>
+      <div class="row mt-4">
+        <div [hidden]="filter == ''" class="col-md-5">
+          <h4>
+            Filterby:
+            <span style="color: rgb(207, 83, 211)">{{ filter }}</span> | Match
+            result:
+            <span style="color: rgb(207, 83, 211)">
+              {{ filterBookList.length }}</span
+            >
+            <span></span>
+          </h4>
+        </div>
+      </div>
+    </div>
+    <!-- book list table -->
+    <div class="container">
+      <div class="table table-hover">
+        <table class="table table-hover" *ngIf="BookList.length; else nop">
+          <thead>
+            <tr style="border-bottom: 2px solid" class="alert alert-success">
+              <th>Name</th>
+              <th>Author</th>
+              <th>price</th>
+              <th>Edition</th>
+              <th
+                [hidden]="activeUserType == 'user'"
+                style="border-left: 2px solid"
+              >
+                Action?
+              </th>
+              <th [hidden]="activeUserType == 'admin'">Download</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let B of filterBookList">
+            <tr>
+              <td>
+                <a [routerLink]="['/Book/name', B.bookName]">{{
+                  B.bookName | uppercase
+                }}</a>
+              </td>
+              <td>{{ B.authorName }}</td>
+              <td>{{ B.price | currency : "INR" }}</td>
+              <td>{{ B.edition }}</td>
+
+              <td
+                [hidden]="activeUserType == 'user'"
+                style="border-left: 2px solid"
+              >
+                <button
+                  (click)="deleteById(B.id)"
+                  class="btn btn-outline-danger btn-sm"
+                  style="border-radius: 30px"
+                >
+                  <i class="fa fa-trash"></i>
+                </button>
+                <button
+                  class="btn btn-outline-primary btn-sm mx-2"
+                  style="border-radius: 30px"
+                >
+                  <i class="fa fa-pencil"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ng-template #nop>
+          <div class="alert alert-danger text-center" ng-else>
+            No Books Available
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+  <!-- </div> -->
+
+  <!-- *ngIf="Lfilter.toLowerCase()==(p.name.toLowerCase() ) || !Lfilter" -->
+</div>

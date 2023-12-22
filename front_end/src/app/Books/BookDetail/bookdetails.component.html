@@ -1,0 +1,48 @@
+<div class="container ">
+    <div style="margin: auto; border: 2px solid;border-radius:  3pc 0pc 3pc 0pc  ;" class='card col-8 mt-2 '>
+        <div style="background-color: black; font-size: large; color: aliceblue; border: 2px solid rgb(148, 26, 148);border-radius:  3pc 0pc 3pc 0pc  ; " class='card-header text-center '>
+          {{title + ': ' + Book?.bookName}}
+        </div>
+      
+        <div class='card-body '
+             *ngIf='Book'>
+          <div class='row'>
+            <div class='col-md-7'>
+              <div class='row'>
+                <div class='col-md-4'>Name:</div>
+                <div class='col-md-7 '>{{Book.bookName | uppercase}}</div>
+              </div>
+              <div class='row'>
+                <div class='col-md-4'>Author:</div>
+                <div class='col-md-7'>{{Book.authorName | uppercase }}</div>
+              </div>
+              
+              <div class='row'>
+                <div class='col-md-4'>Price:</div>
+                <div class="col-md-7">{{Book.price | currency: 'INR'}}</div>
+              </div>
+              <div class='row'>
+                <div class='col-md-4'>edition:</div>
+                <div class='col-md-7'>{{Book.edition}}</div>
+              </div>
+              <div class='row'>
+                <div class='col-md-4'>Description:</div>
+                <div class='col-md-7'>{{Book.description}}</div>
+              </div>
+            </div>
+      
+            <div class='col-md-2'>
+              <img [src]="Book.imageUrl">
+            </div>
+          </div>
+        </div>
+      
+        <div style="border-radius:  3pc 0pc 3pc 0pc ; border: 2px , solid; background-color: black;" class='card-footer'>
+          <button (click)="OnBack()" class='btn btn-outline-warning btn-sm mx-3'
+                  style='width:80px'>
+            <i class='fa fa-chevron-left'></i> Back
+          </button>
+        </div>
+      </div>
+    
+    </div>

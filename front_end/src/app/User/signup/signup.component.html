@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="container col-md-4 mt-4" style="border: 1px ; height: auto; border-radius: 6px; ">
+    <h3 class="text-center alert alert-primary">Signup </h3>
+    <hr>
+    <form (ngSubmit)="Onsignup()" class="needs-validation" ngNativeValidate>
+
+      <!-- for user name -->
+      <div  class="input-icons">
+        <label  class="col-md-4 ">User name</label>
+        <i *ngIf="userTest.touched && userTest.valid" class="fa fa-check input-field"
+           style=" color:rgb(26, 230, 26)  ;"></i>
+        <i *ngIf="userTest.touched && userTest.invalid" class="fa fa-times  mt-1"
+           style=" color:rgb(249, 86, 16)  ;"></i>
+        <input   #userTest="ngModel" [(ngModel)]="user.userName" class="form-control" maxlength="8" minlength="6" name="userName"
+               pattern="[A-Za-z]{1,}[0-9]{0,}" required type="text">
+
+      </div>
+      <div *ngIf="userTest.touched " class=" alert-error ">
+        <span *ngIf="userTest.valid" style="color: rgb(60, 227, 60);">valid | <span style="color: brown; font-family: Verdana, Geneva, Tahoma, sans-serif;"> {{UserAvailability}}</span></span>
+        <span *ngIf="userTest.invalid" style="color: red;">invalid |  </span>
+      </div>
+
+      <!-- for password in password -->
+      <div class="input-icons mt-2">
+        <label class="col-md-4  input-label">password</label>
+        <i *ngIf="passwordTest.touched && passwordTest.valid" class="fa fa-check input-field"
+           style=" color:rgb(26, 230, 26)  ;"></i>
+        <i *ngIf="passwordTest.touched && passwordTest.invalid" class="fa fa-times input-field "
+           style=" color:rgb(249, 86, 16)  ;    "></i>
+        <input #passwordTest="ngModel" [(ngModel)]="user.password" class="form-control" maxlength="10" minlength="8"
+               name="password" pattern="^(?=.{8,})(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$"
+               required type="text"/>
+      </div>
+      <div *ngIf="passwordTest.touched " class=" alert-error ">
+        <span *ngIf="passwordTest.valid" style="color: rgb(60, 227, 60);">valid </span>
+        <span *ngIf="passwordTest.invalid" style="color: red;">invalid </span>
+      </div>
+      <div class="card mt-1" style="background-color: rgb(178, 223, 242);">
+        <ul class="card-content" style="color: rgb(7, 7, 152);">
+          Your password must contain at least:
+          <li><b>8 characters</b></li>
+          <li><b>1 Uppercase letter</b></li>
+          <li><b>1 lowerCase letter</b></li>
+          <li><b>1 special character</b></li>
+        </ul>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 my-2 control-label">User type</label>
+        <input [(ngModel)]="user.userType" checked id="user" name="gender" required type="radio" value="user"> user
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-success col-3 mt-4 " type="submit">Signup</button>
+
+      </div>
+      <p></p>
+
+    </form>
+  </div>
+
+</div>
+
+
+
+

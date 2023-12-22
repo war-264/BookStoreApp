@@ -1,0 +1,14 @@
+.input-icons i {
+            position: -webkit-sticky;
+            float:right ;
+        }
+          
+        .input-icons {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+          
+        .icon {
+            padding: 10px;
+            min-width: 40px;
+        }

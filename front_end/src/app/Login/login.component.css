@@ -1,0 +1,71 @@
+
+/* .mat-error {
+    background: rgb(65, 252, 134);
+    color: white;
+}
+.mat-error button {
+    background-color: rgb(65, 252, 134);
+    color: white;
+    border: none;
+} */
+
+input.ng-invalid.ng-touched {
+   border : 2px solid red;
+ outline: invert;
+  }
+
+  input.ng-valid.ng-touched {
+    border : 2px solid rgb(56, 243, 106);
+    outline: invert;
+   }
+
+   
+   .input-icons i {
+    position: static;
+   
+}
+  
+/* .input-icons {
+    width: 100%;
+   
+} */
+  
+.icon {
+    padding: 10px;
+    min-width: 40px;
+    color: rgb(190, 2, 236);
+    font-size: large;
+}
+.icon:hover {
+    padding: 10px;
+    min-width: 50px;
+    color: rgb(197, 7, 64);
+    font-size: larger;
+}
+.input-field {
+    min-width: 3cm;
+    max-width:6cm;
+  outline: none;
+   border-radius: 4px;
+    
+}
+.input-field:hover {
+   
+    
+}
+#login{
+   
+    
+}
+#login:hover{
+    width: 4cm;
+    
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.nav-link:hover{
+font-size: large;
+text-underline-position: below;
+color: brown;
+
+}
